@@ -1,14 +1,26 @@
-import java.io.*;
+import com.sun.xml.internal.ws.api.pipe.Engine;
 import java.util.*;
+import java.text.*;
 
 public class Solution {
-
+    
     public static void main(String[] args) {
-              Scanner sc=new Scanner(System.in);
-              int T=sc.nextInt();
-              while(T-->0){
-                  int ele=sc.nextInt();
-                  System.out.println(ele);
-              }
-       }
+        Scanner scanner = new Scanner(System.in);
+        double payment = scanner.nextDouble();
+        scanner.close();
+        
+        NumberFormat f = NumberFormat.getCurrencyInstance(Locale.US);
+        String us = f.format(payment);
+        f = NumberFormat.getCurrencyInstance(new Locale("en","IN"));
+        String india = f.format(payment);
+        f = NumberFormat.getCurrencyInstance(Locale.CHINA);
+        String china = f.format(payment);
+        f = NumberFormat.getCurrencyInstance(Locale.FRANCE);
+        String france = f.format(payment);    
+        
+        System.out.println("US: " + us);
+        System.out.println("India: " + india);
+        System.out.println("China: " + china);
+        System.out.println("France: " + france);
+    }
 }
